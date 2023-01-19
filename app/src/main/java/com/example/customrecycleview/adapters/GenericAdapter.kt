@@ -13,7 +13,7 @@ open class GenericAdapter(private val data: List<BaseModel>): RecyclerView.Adapt
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        getBinder<DataBinder<*>>( getItemViewType(position) ).bindViewHolder(holder, position)
+        getBinder<DataBinder<RecyclerView.ViewHolder>>( getItemViewType(position) ).bindViewHolder(holder, position)
     }
 
     private fun <D: DataBinder<*>> getBinder(viewType: Int): D {
